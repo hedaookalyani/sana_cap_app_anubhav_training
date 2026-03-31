@@ -8,7 +8,7 @@ http://localhost:4004/odata/v4/CatalogService/$metadata
 
 ###Get all data from employee - SELECT * FROM employee
 http://localhost:4004/odata/v4/CatalogService/EmployeeSet
-
+Authorization: Basic kalyani:1234
 ###Get all data from employee - SELECT * FROM employee
 http://localhost:4004/odata/v2/CatalogService/EmployeeSet
 ###GET Single employee by its key - SELECT SINGLE * FROM employee WHERE empId = '02BD2137-0890-1EEA-A6C2-BB55C19867FB'

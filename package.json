@@ -4,11 +4,14 @@
   "description": "A simple CAP project.",
   "dependencies": {
     "@cap-js-community/odata-v2-adapter": "^1.15.9",
+    "@cap-js/hana": "^2",
     "@sap/cds": "^9",
-    "express": "^4"
+    "express": "^4",
+    "@sap/xssec": "^4"
   },
   "devDependencies": {
     "@cap-js/sqlite": "^2",
+    "@sap/cds-dk": "^9",
     "cds-plugin-ui5": "^0.13.0"
   },
   "scripts": {
@@ -21,5 +24,38 @@
   ],
   "sapux": [
     "app/managepo"
-  ]
+  ],
+  "cds": {
+    "requires": {
+      "auth": {
+        "[development]": {
+          "kind": "mocked",
+          "users": {
+            "shalini": {
+              "password": "1234"
+            },
+            "kalyani": {
+              "password": "1234",
+              "roles": [
+                "Viewer"
+              ],
+              "attr": {
+                "spiderman": [
+                  "My Bank of New York"
+                ]
+              }
+            }
+          }
+        },
+        "[production]": {
+          "kind": "xsuaa"
+        }
+      },
+      "[production]": {
+        "auth": {
+          "kind": "xsuaa"
+        }
+      }
+    }
+  }
 }
